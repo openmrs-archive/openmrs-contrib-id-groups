@@ -1,0 +1,46 @@
+<% title = 'OpenMRS ID - Google Groups Admin' %>
+<% headline = 'Google Groups Admin' %>
+<% headAppend += '<script src="/mailinglists/resource/groups-admin.js"></script>' %>
+
+<h2>Provisioning API:</h2>
+<p>These credentials are used to connect to the Google Apps Provisioning API and make requests. The should correspond to a GA account with permission to manage the organization's groups.</p>
+<form action="/admin/groups/provisioning" method="post">
+	<div id="provisioning-status">
+		<%- partial('provisioning-status', {apiStatus: apiStatus}) %>
+	</div>
+	<div class="field">
+		<label>Username</label>
+		<input type="text" name="gausername" placeholder="groups@example.org" value="<%=username%>">
+	</div>
+	<div class="field">
+		<label>Password</label>
+		<input type="password" name="gapassword" placeholder="password" value="<%=password%>">
+	</div>
+	<div class="field">
+		<label>Google Apps Domain</label>
+		<input type="text" name="gadomain" placeholder="example.org" value="<%=domain%>">
+	</div>
+	<input type="submit" value="Save & Reconnect">
+</form>
+
+<h2>Group Visibility:</h2>
+<p>Any groups marked "visible" will be able to be subscribed within the ID Dashboard. Members of invisible groups must be managed from some other source.</p>
+<form action="/admin/groups/visibility" method="post">
+	<div id="params-container">
+		<table id="params"><tbody>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Visible</th>
+			</tr>
+			<% for (var i = 0; i < groups.length; i++) { %>
+			<tr>
+				<td><%=groups[i].name%></td>
+				<td><%=groups[i].address%></td>
+				<td><input type="checkbox" name="<%=groups[i].urlName%>"<% if (groups[i].visible) { %> checked<% } %>></td>
+			</tr>
+			<% } %>
+		</body></table>
+	</div>
+	<input type="submit" value="Update Visibilities">
+</form>

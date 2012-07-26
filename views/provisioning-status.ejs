@@ -1,0 +1,9 @@
+<div class="field <%=
+	(apiStatus==0) ? 'fail' : (apiStatus==1) ? 'inprogress' : (apiStatus==2) ? 'valid' : ''
+%> noedit">
+	<label>Status</label>
+	<p><% if (apiStatus == -1) { %><i class="icon-remove"></i>Disabled<% }
+	if (apiStatus == 0) { %><i class="icon-warning-sign"></i>Not Connected<% }
+	if (apiStatus == 1) { %><i class="icon-refresh"></i>Connecting<% }
+	if (apiStatus == 2) { %><i class="icon-ok"></i>Connected<% } %> <span style="color:#ccc">(auto-reloading)</span></p>
+</div>
