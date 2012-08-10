@@ -51,7 +51,7 @@ $().ready(function(){
 				var input = form.find('input[name="address"]');
 				if (input.length == 1) { // no secondary emails
 					icon.removeClass();
-					if (subs.indexOf(input.attr('value')) > -1) {
+					if ($.inArray(input.attr('value'), subs) > -1) {
 						button.find('i').addClass('icon-envelope');
 						button.find('span').html('Unsubscribe');
 					}
@@ -65,7 +65,7 @@ $().ready(function(){
 				form.find('input[name="address"]').each(function(i, elem){
 					elem = $(elem);
 					var address = elem.attr('value');
-					if (subs.indexOf(address) > -1) { // now subscribed
+					if ($.inArray(address, subs) > -1) { // now subscribed
 						if (elem.attr('type') == 'checkbox') {elem.attr('checked', 'checked');}
 						if (elem.attr('type') == 'hidden') {elem.attr('disabled', 'disabled');}
 					}
