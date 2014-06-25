@@ -18,6 +18,7 @@
     "url": "https://github.com/openmrs/openmrs-contrib-id-groups/issues"
   },
   "dependencies": {
-    "xml2js": "~0.1.14"
+    "xml2js": "~0.1.14",
+    "express": "~2.5.9"
   }
 }
