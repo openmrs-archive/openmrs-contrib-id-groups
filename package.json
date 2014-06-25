@@ -1,0 +1,23 @@
+{
+  "name": "openmrs-contrib-id-groups",
+  "version": "1.0.0",
+  "description": "Google Groups integration module of ID Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openmrs/openmrs-contrib-id-groups.git"
+  },
+  "author": "Elliott Williams <elliott@openmrs.org>",
+  "license": "MPLv2",
+  "readmeFilename": "README.md",
+  "gitHead": "255e9c32158343fe20a9a115efe05b99b597c119",
+  "bugs": {
+    "url": "https://github.com/openmrs/openmrs-contrib-id-groups/issues"
+  },
+  "dependencies": {
+    "xml2js": "~0.1.14"
+  }
+}
