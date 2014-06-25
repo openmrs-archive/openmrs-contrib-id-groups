@@ -11,21 +11,21 @@
 	margin-bottom: 18px;
 }
 
-.group-list h3, .group-list p {
+.group-list .group-name, .group-list p {
 	margin: 12px 0;	
 }
-.group-list h3 {
+.group-list .group-name {
 	font: bold 18px 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	margin: 6px 0;
 }
-.group-list h3 a:link {
+.group-list .group-name a:link {
 	text-decoration: underline;
 	color: #4d4129;
 }
-.group-list h3 a:hover {
+.group-list .group-name a:hover {
 	color: #b38936;
 }
-.group-list h3 a:visited {
+.group-list .group-name a:visited {
 	color: #4d4129;
 }
 
@@ -34,21 +34,18 @@
 	top: 12px;
 	right: 12px;
 }
-.group-list input[type="submit"] {
+/*.group-list input[type="submit"] {
 	float: right;
-}
+}*/
 .group-list input[type="checkbox"] {
 	width: 12px;
 	margin: 4px 4px 2px 0;
 }
-.group-list .popover {
+.group-list .popover-content {
 	top: 39px;
 	max-width: 400px;
 }
-.group-list .popover-direction {
-
-}
-.group-list .popover label {
+.group-list .popover-content label {
 	width: auto;
 	position: static;
 	font-size: 12px;
@@ -56,7 +53,7 @@
 	padding: 0;
 	font: inherit;
 }
-.group-list .popover p {
+.group-list .popover-content p {
 	font-size: 13px;
 	margin: 0;
 }
@@ -69,4 +66,13 @@
 }
 .group-list .failtext {
 	display: inline !important;
+}
+
+.group-list .checkbox {
+	padding-left: 0;
+	white-space: nowrap;
+}
+
+.email-selector { 
+	display: none;
 }
