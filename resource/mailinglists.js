@@ -15,7 +15,8 @@ $().ready(function(){
 		$(this).popover({
 			html: true,
 			placement: 'bottom',
-			content: $(this).siblings('.email-selector').html()
+			content: $(this).siblings('.email-selector').html(),
+      trigger: 'focus' // closes popover when user clicks outside
 		});
 
 		// Update the popover stored content when it closes
