@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "xml2js": "~0.1.14",
-    "express": "~2.5.9"
+    "express": "^3.14.0"
   }
 }
