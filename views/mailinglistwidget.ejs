@@ -1,0 +1,42 @@
+<ul id="groups" class="group-list">
+  <li id="<%= groups[i].urlName %>">
+    <form action="/mailinglists/<%= groups[i].urlName %>" method="post">
+      <span class="status"></span>
+      <% if (subs[groups[i].address].indexOf(emails[0]) == -1) { %>
+        <div class="email-selector-submit checkbox" type="submit">
+          <label>
+            <input type="checkbox" onChange="this.form.submit()"><h3 class="group-name"><a href="https://groups.google.com/a/openmrs.org/group/<%= groups[i].urlName %>" target="_blank"><%= groups[i].name %></a></h3>
+          </label>
+          <input type="hidden" name="address" value="<%= emails[0] %>">
+        </div>
+      <% } else { %>
+        <div class="email-selector-submit checkbox" type="submit">
+          <label>
+            <input type="checkbox" onChange="this.form.submit()" checked><h3 class="group-name"><a href="https://groups.google.com/a/openmrs.org/group/<%= groups[i].urlName %>" target="_blank"><%= groups[i].name %></a></h3>
+          </label>
+          <input type="hidden" name="address" value="<%= emails[0] %>">
+        </div>
+      <% } %>
+      <p class="description">
+        <%= groups[i].description %>
+      </p>
+      <% if (subs[groups[i].address].indexOf(emails[0]) > -1) { %>
+        <p> Subscribe with: </p>
+        <% for (var j = 0; j < emails.length; j++) { %>
+          <div class="email-selector-submit checkbox">
+            <label>
+              <% if (subs[groups[i].address].indexOf(emails[j]) > -1) { %>
+                <input type="checkbox" onChange="this.form.submit()" name="address" value="<%= emails[j] %>"checked>
+              <% } else { %>
+                <input type="checkbox" onChange="this.form.submit()" name="address" value="<%= emails[j] %>">
+              <%}%>
+              <%= emails[j] %>
+            </label>
+          </div>
+        <% } %>
+        <span class="status"></span>
+      <% } %>
+    </form>
+  </li>
+  <hr>
+</ul>
