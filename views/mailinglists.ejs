@@ -2,66 +2,17 @@
 <% title = 'OpenMRS ID - Mailing Lists' %>
 <% headline = 'Mailing Lists' %>
 <% headAppend = '<link rel="stylesheet" href="/mailinglists/resource/mailinglists.css">' %>
-<% sidebar = ['./../views/sidebar/groups-secondaryemail'] %>
 
-<p>
-The OpenMRS community maintains several mailing lists for announcements and communication. We use Google Groups to manage our mailing lists, but you can subscribe from any e-mail address&mdash;you don't need a Google Account to subscribe.
-</p>
-
-<ul id="groups" class="group-list col-md-10">
+<div class="col-md-8">
+  <p>
+  The OpenMRS community maintains several mailing lists for announcements and communication.
+  <br>
+  Select the lists that sound interesting to you. You can always change your preferences later.
+  </p>
 	<% for (i in groups) { if (groups[i].visible == true) { %>
-	<li id="<%= groups[i].urlName %>">
-		<h3 class="group-name"><a href="https://groups.google.com/a/openmrs.org/group/<%= groups[i].urlName %>" target="_blank"><%= groups[i].name %></a></h3>
-		<p class="description">
-		<%= groups[i].description %>
-		</p>
-		<form action="/mailinglists/<%= groups[i].urlName %>" method="post">
-			<div class="actions">
-				<% if (emails.length == 1) { %>
-					<span class="status"></span>
-					<% if (subs[groups[i].address].indexOf(emails[0]) == -1) { %>
-					<button class="email-selector-submit btn btn-primary" type="submit">
-						<i class="icon-envelope-alt"></i>
-						<span>Subscribe</span>
-						<input type="hidden" name="address" value="<%= emails[0] %>">
-					<% } else { %>
-					<button class="email-selector-submit btn btn-success" type="submit">
-						<input type="hidden" name="address" value="<%= emails[0] %>" disabled>
-						<i class="icon-envelope"></i>
-						<span>Unsubscribe</span>
-					<% } %>
-					</button>
-				
-				<% } else { %>
-					<button type="button" class="btn btn-primary view-subscriptions"
-					data-toggle="popover" data-placement="bottom"
-					data-content-id="email-selector-<%= groups[i].urlName %>">
-						<i class="icon-reorder"></i>
-						<span>View Subscriptions</span>
-					</button>
-
-					<script type="text/html" data-target="popover"
-					data-content-id="email-selector-<%= groups[i].urlName %>">
-					
-					<% for (var j = 0; j < emails.length; j++) { %>
-						<div class="checkbox">
-							<label>
- 								<input type="checkbox" name="address" value="<%= emails[j] %>"
-									<% if (subs[groups[i].address].indexOf(emails[j]) > -1) { %>checked<% } %>
-								>	
-								<%= emails[j] %>
-							</label>
-						</div>
-					<% } %>
-
-					<input type="submit" class="email-selector-submit btn btn-default" value="Save">
-					<span class="status"></span>
-
-					</script>
-			
-				<% } %>
-			</div>
-		</form>
-	</li>
-	<% } } %>
-</ul>
+    <% include mailinglistwidget %>
+  <% } } %>
+</div>
+<div class="col-md-4">
+  <% include sidebar %>
+</div>
