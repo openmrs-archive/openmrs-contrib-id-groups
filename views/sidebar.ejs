@@ -1,0 +1,20 @@
+<p class="small"> You'll receive your email subscriptions at your primary email <b><%=emails[0]%></b> by default.</p>
+<p class="small"> If you'd prefer, you can choose to receive your subscriptions at a different email address. </p>
+<a href="#" id="toggleText"> 
+  <p class="small">
+    <b> How can I have my emails sent to a different address? </b> 
+  </p> 
+</a>
+<div id="answerText" style="display:none"> 
+  <p class="small"> First, ensure your preferred email address is set up in the "Edit My Account" tab. Then, select your preferred address for each subscription on the left. </p>
+</div>
+<script>
+  var answer = document.getElementById("answerText")
+  $('#toggleText').on('click',function(e) {
+    e.preventDefault();
+    if(answer.style.display=="block")
+        answer.style.display = "none";
+    else
+        answer.style.display = "block";
+    });
+</script>
